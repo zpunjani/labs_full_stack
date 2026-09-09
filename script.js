@@ -4,6 +4,7 @@
  * This lab is a simple front-end application that displays a list of employees and the department they belong to.
  */
 
+// An array that contains the departments and their employees
 const departments = [
     {
         name: "Administration",
