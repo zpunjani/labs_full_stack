@@ -228,7 +228,42 @@ const departments = [
                 lastName: "Redhawk"
             },
         ]
-    }
-            
-    
+    }   
 ];
+
+// The main element where the employee directory will be displayed
+const main = document.querySelector("#employee-directory");
+
+departments.forEach(department => {
+    // Create a section for each department
+    const section = document.createElement("section");
+
+    // Creates a heading for the department name
+    const heading = document.createElement("h2");
+    heading.textContent = department.name;
+    
+    // Creates a list for the employees
+    const employeeList = document.createElement("ul");
+
+    // Creates a list item for each employee
+    department.employees.forEach(employee => {
+        const employeeItem = document.createElement("li");
+        employeeItem.textContent = `${employee.firstName} ${employee.lastName}`;
+        employeeList.appendChild(employeeItem);
+    });
+
+    // Adds the department heading and employee list to the section
+    section.appendChild(heading);
+    section.appendChild(employeeList);
+
+    // Adds the section to the main element
+    main.appendChild(section);
+});
+
+// Getting current year
+const currentYear = new Date().getFullYear();
+
+// showing the current year in the footer
+const footer = document.querySelector("footer");
+footer.textContent = `© ${currentYear} Pixell River Financial.`;
+
