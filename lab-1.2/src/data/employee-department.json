@@ -9,7 +9,7 @@
             {
                 "firstName": "Madeleine",
                 "lastName": "Madden"
-            },
+            }
         ]
     },
 
@@ -129,7 +129,7 @@
             {
                 "firstName": "Danny",
                 "lastName": "Rabbit"
-            },
+            }
         ]
     },
 
@@ -219,7 +219,7 @@
             {
                 "firstName": "Onatah",
                 "lastName": "Redhawk"
-            },
+            }
         ]
     }   
-];
+]
