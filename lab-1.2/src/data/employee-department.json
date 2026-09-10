@@ -1,224 +1,224 @@
 [
     {
-        name: "Administration",
-        employees: [
+        "name": "Administration",
+        "employees": [
             {
-                firstName: "Zoe",
-                lastName: "Robins"
+                "firstName": "Zoe",
+                "lastName": "Robins"
             },
             {
-                firstName: "Madeleine",
-                lastName: "Madden"
+                "firstName": "Madeleine",
+                "lastName": "Madden"
             },
         ]
     },
 
     {
-        name: "Audit",
-        employees: [
+        "name": "Audit",
+        "employees": [
             {
-                firstName: "Josha",
-                lastName: "Sadowski"
+                "firstName": "Josha",
+                "lastName" : "Sadowski"
             },
             {
-                firstName: "Kate",
-                lastName: "Fleetwood"
+                "firstName": "Kate",
+                "lastName": "Fleetwood"
             }
         ]
     },
 
     {
-        name: "Banking Operations",
-        employees: [
+        "name": "Banking Operations",
+        "employees": [
             {
-                firstName: "Priyanka",
-                lastName: "Bose"
+                "firstName": "Priyanka",
+                "lastName": "Bose"
             },
             {
-                firstName: "Hammed",
-                lastName: "Animashaun"
+                "firstName": "Hammed",
+                "lastName": "Animashaun"
             },
             {
-                firstName: "Álvaro",         
-                lastName: "Morte"
+                "firstName": "Álvaro",         
+                "lastName": "Morte"
             },
             {
-                firstName: "Taylor",               
-                lastName: "Napier"
+                "firstName": "Taylor",               
+                "lastName": "Napier"
             },
             {
-                firstName: "Alan",               
-                lastName: "Simmonds"
+                "firstName": "Alan",               
+                "lastName": "Simmonds"
             }
         ]
     },
 
     {
-        name: "Communications",
-        employees: [
+        "name": "Communications",
+        "employees": [
             {
-                firstName: "Gil",
-                lastName: "Cardinal"
+                "firstName": "Gil",
+                "lastName": "Cardinal"
             },
             {
-                firstName: "Richard J.",
-                lastName: "Lewis"
+                "firstName": "Richard J.",
+                "lastName": "Lewis"
             }
         ]
     },
 
     {
-        name: "Corporate Services",
-        employees: [
+        "name": "Corporate Services",
+        "employees": [
             {
-                firstName: "Randy",
-                lastName: "Bradshaw"
+                "firstName": "Randy",
+                "lastName": "Bradshaw"
             },
             {
-                firstName: "Tracey",
-                lastName: "Cook"
+                "firstName": "Tracey",
+                "lastName": "Cook"
             },
             {
-                firstName: "Lubomir",
-                lastName: "Mykytiuk"
+                "firstName": "Lubomir",
+                "lastName": "Mykytiuk"
             }
         ]
     },
 
     {
-        name: "Facilities",
-        employees: [
+        "name": "Facilities",
+        "employees": [
             {
-                firstName: "Dakota",
-                lastName: "House"
+                "firstName": "Dakota",
+                "lastName": "House"
             },
             {
-                firstName: "Lori Lea",
-                lastName: "Okemah"
+                "firstName": "Lori Lea",
+                "lastName": "Okemah"
             },
             {
-                firstName: "Renae",
-                lastName: "Morrisseau"
+                "firstName": "Renae",
+                "lastName": "Morrisseau"
             },
             {
-                firstName: "Rick",
-                lastName: "Belcourt"
+                "firstName": "Rick",
+                "lastName": "Belcourt"
             }
         ]
     },
 
     {
-        name: "Financial Services",
-        employees: [
+        "name": "Financial Services",
+        "employees": [
             {  
-                firstName: "Selina",
-                lastName: "Hanusa"
+                "firstName": "Selina",
+                "lastName": "Hanusa"
             },
             {
-                firstName: "Buffy",
-                lastName: "Gaudry"
+                "firstName": "Buffy",
+                "lastName": "Gaudry"
             },
             {
-                firstName: "Shaneen Ann",
-                lastName: "Fox"
+                "firstName": "Shaneen Ann",
+                "lastName": "Fox"
             },
             {
-                firstName: "Allan",
-                lastName: "Little"
+                "firstName": "Allan",
+                "lastName": "Little"
             },
             {
-                firstName: "Danny",
-                lastName: "Rabbit"
+                "firstName": "Danny",
+                "lastName": "Rabbit"
             },
         ]
     },
 
     {
-        name: "Human Resources",
-        employees: [
+        "name": "Human Resources",
+        "employees": [
             {
-                firstName: "Jesse Ed",
-                lastName: "Azure"
+                "firstName": "Jesse Ed",
+                "lastName": "Azure"
             },
             {
-                firstName: "Stacy Da",
-                lastName: "Silva"
+                "firstName": "Stacy Da",
+                "lastName": "Silva"
             },
             {
-                firstName: "Vladimir",
-                lastName: "Valenta"
+                "firstName": "Vladimir",
+                "lastName": "Valenta"
             },
             {
-                firstName: "Samone",
-                lastName: "Sayeses-Whitney"
+                "firstName": "Samone",
+                "lastName": "Sayeses-Whitney"
             },
             {
-                firstName: "Paul",
-                lastName: "Coeur"
+                "firstName": "Paul",
+                "lastName": "Coeur"
             }
         ]
     },
 
     {
-        name: "Information Technology",
-        employees: [
+        "name": "Information Technology",
+        "employees": [
             {
-                firstName: "Graham",
-                lastName: "Green"
+                "firstName": "Graham",
+                "lastName": "Green"
             },
             {
-                firstName: "Sandika",
-                lastName: "Evergreen"
+                "firstName": "Sandika",
+                "lastName": "Evergreen"
             },
             {
-                firstName: "Jennifer",
-                lastName: "Rodriguez"
+                "firstName": "Jennifer",
+                "lastName": "Rodriguez"
             }
         ]
     },
 
     {
-        name: "IT Technician",
-        employees: [
+        "name": "IT Technician",
+        "employees": [
             {
-                firstName: "Aiyana",
-                lastName: "Littlebear"
+                "firstName": "Aiyana",
+                "lastName": "Littlebear"
             },
             {
-                firstName: "Inara",
-                lastName: "Thunderbird"
+                "firstName": "Inara",
+                "lastName": "Thunderbird"
             },
             {
-                firstName: "Kaya",
-                lastName: "Runningbrook"
+                "firstName": "Kaya",
+                "lastName": "Runningbrook"
             },
             {
-                firstName: "Elara",
-                lastName: "Firehawk"
+                "firstName": "Elara",
+                "lastName": "Firehawk"
             },
             {
-                firstName: "Siona",
-                lastName: "Monnflower"
+                "firstName": "Siona",
+                "lastName": "Monnflower"
             },
             {
-                firstName: "Kaiyu",
-                lastName: "Greywolf"
+                "firstName": "Kaiyu",
+                "lastName": "Greywolf"
             },
             {
-                firstName: "Ayawamat",
-                lastName: "Nightwind"
+                "firstName": "Ayawamat",
+                "lastName" : "Nightwind"
             },
             {
-                firstName: "Tala",
-                lastName: "Braveheart"
+                "firstName": "Tala",
+                "lastName": "Braveheart"
             },
             {
-                firstName: "Iniko",
-                lastName: "Stonebear"
+                "firstName": "Iniko",
+                "lastName": "Stonebear"
             },
             {
-                firstName: "Onatah",
-                lastName: "Redhawk"
+                "firstName": "Onatah",
+                "lastName": "Redhawk"
             },
         ]
     }   
