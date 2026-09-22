@@ -1,14 +1,14 @@
 body {
 	font-family: "Arial", sans-serif;
 	background-color: #f4f4f4;
-	color: #333;
+	color: #0c0c0c;
 	margin: 0;
 	padding: 0;
 }
 
 header {
     position: relative;
-    color: rgb(3, 21, 142);
+    color: rgb(241, 8, 8);
     padding: 20px;
     min-height: 180px;
 
