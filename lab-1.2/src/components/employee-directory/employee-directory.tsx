@@ -1,11 +1,11 @@
 import departments from '../../data/employee-department.json'
 
-interface Employee {
+export interface Employee {
     firstName: string;
     lastName?: string;
 }
 
-interface Department {
+ export interface Department {
     name: string;
     employees: Employee[];
 }
