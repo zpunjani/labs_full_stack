@@ -27,7 +27,7 @@
         "firstName" : "Josee",
         "lastName" : "Benjamin",
         "role" : "CIO"
-    }.
+    },
 
     {
         "firstName" : "Vincent",
@@ -219,5 +219,5 @@
         "firstName" : "Jim",
         "lastName" : "Wingnut",
         "role" : "Manager IT, project management office"
-    },
+    }
 ]

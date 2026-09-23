@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import { Routes, Route } from "react-router-dom"
-import './App.css'
-import Header from './components/header/header'
-import Footer from './components/footer/footer'
-import EmployeeDirectory from './components/employee-directory/employee-directory'
-import EmployeeForm from './components/employee-form/employee-form'
-import departmentsData from './data/employee-department.json'
-import type { Department, Employee } from './components/employee-directory/employee-directory'
-import Organization from './components/organization/organization'
+import { useState } from 'react';
+import { Routes, Route } from "react-router-dom";
+import './App.css';
+import departmentsData from './data/employee-department.json';
+import type { Department, Employee } from './components/employee-directory/employee-directory';
+import Organization from './components/organization/organization';
+import { Layout } from './components/layout/layout';
+import Employees from './components/pages/employees';
 
 function App() {
 
@@ -31,12 +29,12 @@ function App() {
   return (
     <>
       
-      <Header />
-      <EmployeeDirectory departments={departments} />
-      <EmployeeForm departments={departments} onAddEmployee={addEmployee}
-        />
-      <Footer />
-      
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="employees" element={<Employees departments={departments} onAddEmployee={addEmployee} />} />
+          <Route path="organization" element={<Organization />} />
+        </Route>
+      </Routes>
     </>
   )
 }
