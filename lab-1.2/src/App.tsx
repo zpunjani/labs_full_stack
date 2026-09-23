@@ -5,7 +5,7 @@ import Footer from './components/footer/footer'
 import EmployeeDirectory from './components/employee-directory/employee-directory'
 import EmployeeForm from './components/employee-form/employee-form'
 import departmentsData from './data/employee-department.json'
-import type { Department } from './components/employee-directory/employee-directory'
+import type { Department, Employee } from './components/employee-directory/employee-directory'
 
 function App() {
 
@@ -13,12 +13,26 @@ function App() {
     departmentsData as Department[]
   )
 
+  function addEmployee(employee: Employee, departmentName: string) {
+    setDepartments((currentDepartments) =>
+      currentDepartments.map((department) =>
+        department.name === departmentName ? {
+          ...department,
+          employees:[
+            ...department.employees,
+            employee
+          ]}: department
+        )
+      )
+  }
+
   return (
     <>
       
       <Header />
       <EmployeeDirectory departments={departments} />
-      <EmployeeForm departments={departments}/>
+      <EmployeeForm departments={departments} onAddEmployee={addEmployee}
+        />
       <Footer />
       
     </>

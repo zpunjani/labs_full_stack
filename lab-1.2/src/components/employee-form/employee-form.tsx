@@ -1,11 +1,13 @@
 // Form for adding a new employee
 import { useState } from 'react'
-import type { Department } from '../employee-directory/employee-directory'
+import type { Department, Employee } from '../employee-directory/employee-directory'
 
 interface EmployeeFormData {
     departments: Department[];
+    onAddEmployee: (employee: Employee, departmentName: string) => void;
 }
-function EmployeeForm( {departments}: EmployeeFormData) { 
+
+function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) { 
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -25,6 +27,17 @@ function EmployeeForm( {departments}: EmployeeFormData) {
             setValidationMessage('Please select a department')
             return
         }
+
+        const newEmployee: Employee = {
+            firstName: firstName.trim(),
+            lastName: lastName.trim() || undefined
+        }
+
+        onAddEmployee(newEmployee,selectedDepartment)
+
+        setFirstName('')
+        setLastName('')
+        setSelectedDepartment('')
     }
 
     return(
