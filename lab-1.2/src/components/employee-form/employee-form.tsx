@@ -1,6 +1,10 @@
 // Form for adding a new employee
+import type { Department } from '../employee-directory/employee-directory'
 
-function EmployeeForm() { 
+interface EmployeeFormData {
+    departments: Department[];
+}
+function EmployeeForm( {departments}: EmployeeFormData) { 
     return(
         <section>
             <h2>Add Employee</h2>
@@ -16,6 +20,12 @@ function EmployeeForm() {
                     <label htmlFor="department">Department</label>
                     <select id="department" name="department">
                         <option value="">Select a department</option>
+                        
+                        {departments.map((department) => (
+                            <option key = {department.name} value = {department.name}>
+                                {department.name}
+                            </option>
+                        ))}
                     </select>
 
                     <button type="submit">Add Employee</button>

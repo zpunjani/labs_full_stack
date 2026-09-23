@@ -1,23 +1,24 @@
-import departments from '../../data/employee-department.json'
 
 export interface Employee {
     firstName: string;
     lastName?: string;
 }
 
- export interface Department {
+export interface Department {
     name: string;
     employees: Employee[];
 }
 
-const departmentData: Department[] = departments as Department[];
+interface EmployeeData {
+    departments: Department[];
+}
 
-function EmployeeDirectory() {
+function EmployeeDirectory({ departments }: EmployeeData) {
     return (
         <main>
             <h2>Employee Directory</h2>
 
-            {departmentData.map((department) => (
+            {departments.map((department) => (
                 <section key={department.name}>
                     <h3>{department.name}</h3>
 
