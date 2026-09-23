@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Routes, Route } from "react-router-dom"
 import './App.css'
 import Header from './components/header/header'
 import Footer from './components/footer/footer'
@@ -6,6 +7,7 @@ import EmployeeDirectory from './components/employee-directory/employee-director
 import EmployeeForm from './components/employee-form/employee-form'
 import departmentsData from './data/employee-department.json'
 import type { Department, Employee } from './components/employee-directory/employee-directory'
+import Organization from './components/organization/organization'
 
 function App() {
 
