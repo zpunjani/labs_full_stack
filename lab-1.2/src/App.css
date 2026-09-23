@@ -80,6 +80,43 @@ tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+nav {
+    padding: 10px 20px;
+}
+
+.page-links {
+    display: flex;
+    gap: 20px;
+}
+
+.page-links a {
+    color: #0c0c0c;
+    font-size: 18px;
+}
+
+.page-links a:hover {
+    color: blue;
+}
+
+.org-list {
+    margin-top: 20px;
+}
+
+.org-row {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 20px;
+    padding: 5px 0;
+}
+
+.org-name {
+    text-align: left;
+}
+
+.org-role {
+    text-align: right;
+}
+
 footer {
     background-color: #333;
     color: #fff;

@@ -14,16 +14,18 @@ function Organization() {
         <main>
             <h2>Organization</h2>
 
-            {roles.map((role) => (
-                <div key={`${role.firstName}-${role.lastName}`}>
-                    <span>
-                        {role.firstName} {role.lastName}
-                    </span>
-                    <span>
-                        {role.role}
-                    </span>
-                </div>
-            ))}
+            <div className="org-list">
+                {roles.map((role) => (
+                    <div className="org-row" key={`${role.firstName}-${role.lastName}`}>
+                        <span className="org-name">
+                            {role.firstName} {role.lastName}
+                        </span>
+                        <span className="org-role">
+                            {role.role}
+                        </span>
+                    </div>
+                ))}
+            </div>
         </main>
     )
 }
