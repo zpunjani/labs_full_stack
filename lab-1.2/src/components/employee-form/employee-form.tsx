@@ -1,43 +1,50 @@
 // Form for adding a new employee
-import { useState } from 'react'
+import type React from 'react'
 import type { Department, Employee } from '../employee-directory/employee-directory'
+import useFormInput from '../../hooks/useFormInput'
 
 interface EmployeeFormData {
     departments: Department[];
     onAddEmployee: (employee: Employee, departmentName: string) => void;
 }
 
-function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) { 
+function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) {
 
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [selectedDepartment, setSelectedDepartment] = useState('')
-    const [validationMessage, setValidationMessage] = useState('')
+    const firstName = useFormInput('')
+    const lastName = useFormInput('')
+    const selectedDepartment = useFormInput('')
 
-    function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+    async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
-        setValidationMessage('')
 
-        if (firstName.trim().length < 3) {
-            setValidationMessage('First name must be atleast 3 characters')
-            return
-        }
+        const isFirstNameValid = firstName.validateInput((value) => {
+            if (value.trim().length < 3) {
+                return 'First name must be at least 3 characters long'
+            }
+            return null
+        })
 
-        if(!selectedDepartment) {
-            setValidationMessage('Please select a department')
+        const isDepartmentValid = selectedDepartment.validateInput((value) => {
+            if (!value) {
+                return 'Please select a department'
+            }
+            return null
+        })
+
+        if (!isFirstNameValid || !isDepartmentValid) {
             return
         }
 
         const newEmployee: Employee = {
-            firstName: firstName.trim(),
-            lastName: lastName.trim() || undefined
+            firstName: firstName.value.trim(),
+            lastName: lastName.value.trim() || undefined
         }
 
-        onAddEmployee(newEmployee,selectedDepartment)
+        onAddEmployee(newEmployee, selectedDepartment.value)
 
-        setFirstName('')
-        setLastName('')
-        setSelectedDepartment('')
+        firstName.resetInput()
+        lastName.resetInput()
+        selectedDepartment.resetInput()
     }
 
     return(
@@ -47,32 +54,43 @@ function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" 
-                        value={firstName} onChange={(event)=> setFirstName(event.target.value)}/>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={firstName.value}
+                        onChange={(event) => firstName.onChange(event.target.value)}
+                    />
+                    {firstName.message && <p>{firstName.message}</p>}
 
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName"
-                        value={lastName} onChange={(event)=> setLastName(event.target.value)} />
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={lastName.value}
+                        onChange={(event) => lastName.onChange(event.target.value)}
+                    />
 
                     <label htmlFor="department">Department</label>
-                    <select id="department" name="department"
-                        value={selectedDepartment} onChange={(event)=> setSelectedDepartment(event.target.value)}>
-                        
+                    <select
+                        id="department"
+                        name="department"
+                        value={selectedDepartment.value}
+                        onChange={(event) => selectedDepartment.onChange(event.target.value)}
+                    >
                         <option value="">Select a department</option>
-                        
+
                         {departments.map((department) => (
-                            <option key = {department.name} value = {department.name}>
+                            <option key={department.name} value={department.name}>
                                 {department.name}
                             </option>
                         ))}
                     </select>
-
-                    {validationMessage && (<p>{validationMessage}</p>)}
+                    {selectedDepartment.message && <p>{selectedDepartment.message}</p>}
 
                     <button type="submit">Add Employee</button>
                 </div>
-
-
             </form>
         </section>
     )
