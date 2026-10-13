@@ -37,6 +37,6 @@ async addEmployee(
 ): Promise<Department[]> {
         const departments = await employeeRepository.getDepartments();
         validateEmployee(employee, departmentName, departments);
-        return employeeRepository.addEmployee(employee, departmentName);
+        return employeeRepository.addEmployee(departmentName, employee);
     }
 };
