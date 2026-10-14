@@ -18,7 +18,7 @@ function validateEmployee(
     );
 
     if (!departmentExists) {
-        errors.push('Selected department does not exist');
+        errors.push('Please select a valid department');
     }
 
     if (errors.length > 0) {

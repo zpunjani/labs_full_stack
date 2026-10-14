@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { employeeService } from "../services/employeeService";
 import type { Employee, Department } from "../components/employee-directory/employee-directory";
 
+interface AddEmployeeFunction {
+    success: boolean;
+    error: string | null;
+}
+
 export function useEmployee() {
     const [departments, setDepartments] = useState<Department[]>([]);
     const [loading, setLoading] = useState(true);
@@ -37,19 +42,19 @@ export function useEmployee() {
     async function addEmployee(
         employee: Employee,
         departmentName: string
-    ): Promise<boolean> {
+    ): Promise<AddEmployeeFunction> {
         setError(null);
         try {
             const updatedDepartments = await employeeService.addEmployee(employee, departmentName);
             setDepartments(updatedDepartments);
-            return true;
+            return { success: true, error: null };
         } catch (error) {
-            setError(
+            const message =
                 error instanceof Error 
                 ? error.message 
-                : "Failed to add employee"
-            );
-            return false;
+                : "Failed to add employee";
+                
+            return { success: false, error: message };
         }
     }
 

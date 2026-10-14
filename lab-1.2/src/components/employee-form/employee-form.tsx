@@ -5,7 +5,7 @@ import useFormInput from '../../hooks/useFormInput'
 
 interface EmployeeFormData {
     departments: Department[];
-    onAddEmployee: (employee: Employee, departmentName: string) => void;
+    onAddEmployee: (employee: Employee, departmentName: string) => Promise<{success: boolean, error: string | null}>;
 }
 
 function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) {
@@ -17,30 +17,32 @@ function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) {
     async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
 
-        const isFirstNameValid = firstName.validateInput((value) => {
-            if (value.trim().length < 3) {
-                return 'First name must be at least 3 characters long'
-            }
-            return null
-        })
-
-        const isDepartmentValid = selectedDepartment.validateInput((value) => {
-            if (!value) {
-                return 'Please select a department'
-            }
-            return null
-        })
-
-        if (!isFirstNameValid || !isDepartmentValid) {
-            return
-        }
+        firstName.setMessage('');
+        selectedDepartment.setMessage('');
 
         const newEmployee: Employee = {
             firstName: firstName.value.trim(),
             lastName: lastName.value.trim() || undefined
         }
 
-        onAddEmployee(newEmployee, selectedDepartment.value)
+        const result = await onAddEmployee(
+            newEmployee,
+            selectedDepartment.value
+        )
+
+        if (!result.success) {
+            const message = result.error || "Unable to add Employee.";
+
+            if (message.includes('First Name')) {
+                firstName.setMessage(message)
+            } else if (message.includes('Department')) {
+                selectedDepartment.setMessage(message)
+            } else {
+                firstName.setMessage(message)
+            }
+
+            return;
+        }
 
         firstName.resetInput()
         lastName.resetInput()
