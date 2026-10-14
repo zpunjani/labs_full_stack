@@ -1,19 +1,20 @@
 import EmployeeDirectory from "../employee-directory/employee-directory";
 import EmployeeForm from '../employee-form/employee-form';
-import type { Department, Employee } from "../employee-directory/employee-directory";
+import  { useEmployee } from '../../hooks/useEmployee';
 
-interface EmployeesProps {
-    departments: Department[];
-    onAddEmployee: (employee: Employee, departmentName: string) => void;
-}
+function Employees()   {
+    const { departments, loading, error, addEmployee } = useEmployee();
 
-function Employees({ departments, onAddEmployee}:EmployeesProps) {
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
     return (
         <>
+            {error && <p>{error}</p>}
             <EmployeeDirectory departments={departments} />
-            <EmployeeForm departments={departments} onAddEmployee={onAddEmployee} />
+            <EmployeeForm departments={departments} onAddEmployee={addEmployee} />
         </>
-    )
+    );
 }
-
 export default Employees
