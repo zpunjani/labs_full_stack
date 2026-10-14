@@ -1,0 +1,131 @@
+body {
+	font-family: "Arial", sans-serif;
+	background-color: #f4f4f4;
+	color: #0c0c0c;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+    position: relative;
+    color: rgb(241, 8, 8);
+    padding: 20px;
+    min-height: 180px;
+
+}
+
+.logo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    height: auto;
+    left: 20px;
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 40px;
+    margin: 20px 0 10px;
+}
+
+.header-content p {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+main > h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+nav {
+    padding: 10px 20px;
+}
+
+.page-links {
+    display: flex;
+    gap: 20px;
+}
+
+.page-links a {
+    color: #0c0c0c;
+    font-size: 18px;
+}
+
+.page-links a:hover {
+    color: blue;
+}
+
+.org-list {
+    margin-top: 20px;
+}
+
+.org-row {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 20px;
+    padding: 5px 0;
+}
+
+.org-name {
+    text-align: left;
+}
+
+.org-role {
+    text-align: right;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    margin-top: 20px;
+    
+}
+
+
+
