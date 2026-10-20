@@ -1,17 +1,4 @@
-
-export interface Employee {
-    firstName: string;
-    lastName?: string;
-}
-
-export interface Department {
-    name: string;
-    employees: Employee[];
-}
-
-interface EmployeeData {
-    departments: Department[];
-}
+import type { EmployeeData } from '../../types/EmployeeDepartment'
 
 function EmployeeDirectory({ departments }: EmployeeData) {
     return (

@@ -1,5 +1,5 @@
 import departmentData from '../data/employee-department.json'
-import type { Department, Employee } from '../components/employee-directory/employee-directory'
+import type { Department, Employee } from '../types/EmployeeDepartment'
 
 let departments: Department[] = departmentData.map((department) => ({
     ...department,

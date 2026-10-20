@@ -1,11 +1,6 @@
 // Organization and management
 import roleData from '../../data/organization.json'
-
-export interface Role {
-    firstName: string;
-    lastName: string;
-    role: string;
-}
+import type { Role } from '../../types/organization'
 
 const roles: Role [] = roleData as Role[]
 

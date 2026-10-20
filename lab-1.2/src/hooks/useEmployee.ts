@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { employeeService } from "../services/employeeService";
-import type { Employee, Department } from "../components/employee-directory/employee-directory";
+import type { Employee, Department } from "../types/EmployeeDepartment";
+import type { AddEmployeeFunction } from "../types/addEmployee";
 
-interface AddEmployeeFunction {
-    success: boolean;
-    error: string | null;
-}
 
 export function useEmployee() {
     const [departments, setDepartments] = useState<Department[]>([]);

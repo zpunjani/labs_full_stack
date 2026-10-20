@@ -1,10 +1,6 @@
 import roleData from '../data/organization.json'
+import type { Role } from '../types/organization'
 
-export interface Role {
-    firstName: string;
-    lastName: string;
-    role: string;
-}
 
 let roles: Role[] = roleData as Role[]
 
