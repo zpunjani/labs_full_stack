@@ -1,10 +1,15 @@
 // Organization and management
-import roleData from '../../data/organization.json'
-import type { Role } from '../../types/organization'
+import { useOrganization } from '../../hooks/useOrganization'
+import OrganizationForm from '../organizationForm/Organization-form'
 
-const roles: Role [] = roleData as Role[]
 
 function Organization() {
+    const { roles, loading, error, addRole } = useOrganization()
+
+    if (loading) {
+        return <p>Loading...</p>
+    }
+
     return (
         <main>
             <h2>Organization</h2>
@@ -21,6 +26,8 @@ function Organization() {
                     </div>
                 ))}
             </div>
+
+            <OrganizationForm onAddRole={addRole} />
         </main>
     )
 }
