@@ -1,12 +1,8 @@
 // Form for adding a new employee
 import type React from 'react'
-import type { Department, Employee } from '../employee-directory/employee-directory'
+import type { Employee } from '../../types/EmployeeDepartment'
 import useFormInput from '../../hooks/useFormInput'
-
-interface EmployeeFormData {
-    departments: Department[];
-    onAddEmployee: (employee: Employee, departmentName: string) => Promise<{success: boolean, error: string | null}>;
-}
+import type { EmployeeFormData } from '../../types/EmployeeFormData'
 
 function EmployeeForm( {departments, onAddEmployee}: EmployeeFormData) {
 

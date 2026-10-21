@@ -1,6 +1,6 @@
 import { employeeRepository } from '../repositories/employeeRepository'
 
-import type { Employee, Department } from '../components/employee-directory/employee-directory'
+import type { Employee, Department } from '../types/EmployeeDepartment'
 
 function validateEmployee(
     employee: Employee,

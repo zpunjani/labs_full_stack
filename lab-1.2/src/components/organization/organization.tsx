@@ -1,18 +1,20 @@
 // Organization and management
-import roleData from '../../data/organization.json'
+import { useOrganization } from '../../hooks/useOrganization'
+import OrganizationForm from '../organizationForm/Organization-form'
 
-export interface Role {
-    firstName: string;
-    lastName: string;
-    role: string;
-}
-
-const roles: Role [] = roleData as Role[]
 
 function Organization() {
+    const { roles, loading, error, addRole, removeRole } = useOrganization()
+
+    if (loading) {
+        return <p>Loading...</p>
+    }
+
     return (
         <main>
             <h2>Organization</h2>
+
+            {error && <p>{error}</p>}
 
             <div className="org-list">
                 {roles.map((role) => (
@@ -23,9 +25,16 @@ function Organization() {
                         <span className="org-role">
                             {role.role}
                         </span>
+
+                        <button 
+                            type="button" 
+                            onClick={() => removeRole(role)}>Delete
+                        </button>
                     </div>
                 ))}
             </div>
+
+            <OrganizationForm onAddRole={addRole} />
         </main>
     )
 }
