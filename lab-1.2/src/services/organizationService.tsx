@@ -42,5 +42,9 @@ export const organizationService = {
         const roles = await organizationRepository.getRoles();
         validateRole(newRole, roles);
         return organizationRepository.addRole(newRole);
+    },
+
+    async removeRole(roleToRemove: Role): Promise<Role[]> {
+        return organizationRepository.removeRole(roleToRemove);
     }
 };

@@ -4,7 +4,7 @@ import OrganizationForm from '../organizationForm/Organization-form'
 
 
 function Organization() {
-    const { roles, loading, error, addRole } = useOrganization()
+    const { roles, loading, error, addRole, removeRole } = useOrganization()
 
     if (loading) {
         return <p>Loading...</p>
@@ -25,6 +25,11 @@ function Organization() {
                         <span className="org-role">
                             {role.role}
                         </span>
+
+                        <button 
+                            type="button" 
+                            onClick={() => removeRole(role)}>Delete
+                        </button>
                     </div>
                 ))}
             </div>

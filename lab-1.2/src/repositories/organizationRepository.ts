@@ -15,4 +15,9 @@ export const organizationRepository = {
         roles = [...roles, {...newRole}];
         return this.getRoles();
     },
+
+    async removeRole(roleToRemove: Role): Promise<Role[]> {
+        roles = roles.filter((role) => role.role !== roleToRemove.role);
+        return this.getRoles();
+    }
 }

@@ -53,10 +53,29 @@ export function useOrganization() {
         }
     }
 
+    async function removeRole(
+        roleToRemove: Role
+    ): Promise<void> {  
+        setError(null);
+
+        try {
+            const updatedRoles = await organizationService.removeRole(roleToRemove);
+            setRoles(updatedRoles);
+        } catch (error) {
+            const message =
+                error instanceof Error 
+                ? error.message 
+                : 'Failed to remove organization';
+            setError(message);
+        }
+    }
+
     return { 
         roles,
         loading,
         error,
-        addRole
+        addRole,
+        removeRole
     };
 }
+
