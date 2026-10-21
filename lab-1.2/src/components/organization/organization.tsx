@@ -14,6 +14,8 @@ function Organization() {
         <main>
             <h2>Organization</h2>
 
+            {error && <p>{error}</p>}
+
             <div className="org-list">
                 {roles.map((role) => (
                     <div className="org-row" key={`${role.firstName}-${role.lastName}`}>
