@@ -12,11 +12,20 @@ function validateRole(
     }
 
     const roleOccupied = roles.some(
-        (role) => role.role === newRole.role
+        (role) => 
+            role.role.trim().toLowerCase() === newRole.role.trim().toLowerCase()
     );
 
     if (roleOccupied) {
         errors.push("Role is already occupied");
+    }
+
+    if (errors.length > 0) {
+        throw new Error(errors.join(", "));
+    }
+
+    if (newRole.role.trim().length === 0) {
+        errors.push("Role cannot be empty");
     }
 
     if (errors.length > 0) {
