@@ -1,4 +1,4 @@
-import type { Role } from "../../src/types/organization"
+import type { Role } from "./organization"
 
 export interface OrganizationFormData {
     onAddRole: (role: Role) => Promise<{
