@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "db:seed": "prisma db seed --config prisma7.config.ts",
-    "db:reset": "prisma migrate reset --config prisma7.config.ts"
+    "db:reset": "prisma migrate reset --config prisma7.config.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+    
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.1",

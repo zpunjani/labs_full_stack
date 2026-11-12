@@ -1,33 +1,31 @@
-import departmentData from '../data/employee-department.json'
 import type { Department, Employee } from '../types/EmployeeDepartment'
 
-let departments: Department[] = departmentData.map((department) => ({
-    ...department,
-    employees: department.employees.map((employee) => ({
-        ...employee
-    })),
-}))
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const endpoint = `${baseUrl}/api/employees`;
+
+async function readJson<T>(response:Response): Promise<T> {
+    if (!response.ok) {
+        throw new Error(`API error:${response.status}`);
+    }
+
+    return (await response.json()) as T;
+}
 
 export const employeeRepository = {
     async getDepartments(): Promise<Department[]> {
-        return departments.map((department) => ({
-            ...department,
-            employees: department.employees.map((employee) => ({
-                ...employee
-            }))
-        }));
-    },
+        const response = await fetch(endpoint);
+        return readJson<Department[]>(response);
+        },
 
     async addEmployee(departmentName: string, employee: Employee): Promise<Department[]> {
-        departments = departments.map((department) => {
-            if (department.name === departmentName) {
-                return {
-                    ...department,
-                    employees: [...department.employees, {...employee}],
-                };
-            }
-            return department;
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {  
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ employee, departmentName })
         });
-        return this.getDepartments();
+        
+        return readJson<Department[]>(response);
     },
 }

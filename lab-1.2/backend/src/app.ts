@@ -7,8 +7,16 @@ import organizationRoutes from "./routes/organizationRoutes";
 
 const app = express();
 
+const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+
+if (!frontendUrl) {
+  throw new Error("FRONTEND_URL is required");
+}
+
+app.use(cors({origin: frontendUrl}));
+
 app.use(express.json());
-app.use(cors());
+
 app.use("/api/employees", employeeRoutes);
 app.use("/api/organization", organizationRoutes);
 

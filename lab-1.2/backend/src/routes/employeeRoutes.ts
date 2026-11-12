@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { employeeController } from "../controllers/employeeController";
-import { validateOrganizationBody } from "../validations/organizationValidation";
+import { validateEmployee } from "../validations/employeeValidation";
 
 const router = Router();
 
 router.get("/", employeeController.getAll);
-router.post("/", validateOrganizationBody, employeeController.add);   
+router.post("/", validateEmployee, employeeController.add);   
 
 export default router;
