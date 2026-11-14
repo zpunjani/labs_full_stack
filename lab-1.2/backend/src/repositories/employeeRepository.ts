@@ -1,33 +1,45 @@
-import departmentData from '../data/employee-department.json'
+import { prisma }  from '../db/prisma'
 import type { Department, Employee } from '../types/employeeDepartment'
-
-let departments: Department[] = departmentData.map((department) => ({
-    ...department,
-    employees: department.employees.map((employee) => ({
-        ...employee
-    })),
-}))
 
 export const employeeRepository = {
     async getDepartments(): Promise<Department[]> {
+        const departments = await prisma.department.findMany({
+            include: {
+                employees: {
+                    select: {
+                        firstName: true,
+                        lastName: true
+                    }
+                }
+            }
+        });
+
         return departments.map((department) => ({
-            ...department,
+            name: department.name,
             employees: department.employees.map((employee) => ({
-                ...employee
+                firstName: employee.firstName,
+                lastName: employee.lastName
             }))
         }));
     },
 
     async addEmployee(departmentName: string, employee: Employee): Promise<Department[]> {
-        departments = departments.map((department) => {
-            if (department.name === departmentName) {
-                return {
-                    ...department,
-                    employees: [...department.employees, {...employee}],
-                };
+        const department = await prisma.department.findUnique({
+            where: {
+                name: departmentName
             }
-            return department;
         });
+
+        if (department) {
+            await prisma.employee.create({
+                data: {
+                    firstName: employee.firstName,
+                    lastName: employee.lastName ?? "",
+                    departmentId: department.id
+                }
+            });
+        }
+
         return this.getDepartments();
     },
 }

@@ -1,23 +1,36 @@
-import roleData from '../data/organization.json'
+import { prisma } from '../db/prisma'
 import type { Role } from '../types/organization'
-
-
-let roles: Role[] = roleData as Role[]
 
 export const organizationRepository = {
     async getRoles(): Promise<Role[]> {
+        const roles = await prisma.role.findMany();
+
         return roles.map((role) => ({
-            ...role
+            firstName: role.firstName,
+            lastName: role.lastName,
+            role: role.role
         }));
     },
 
     async addRole(newRole: Role): Promise<Role[]> {
-        roles = [...roles, {...newRole}];
+        await prisma.role.create({
+            data: {
+                firstName: newRole.firstName,
+                lastName: newRole.lastName,
+                role: newRole.role
+            }
+        });
+
         return this.getRoles();
     },
 
     async removeRole(roleToRemove: Role): Promise<Role[]> {
-        roles = roles.filter((role) => role.role !== roleToRemove.role);
+        await prisma.role.deleteMany({
+            where: {
+                role: roleToRemove.role
+            }
+        });
+
         return this.getRoles();
     }
 }
