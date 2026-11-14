@@ -1,0 +1,15 @@
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: pr_employee
+      POSTGRES_PASSWORD: employee_dev_only
+      POSTGRES_DB: employee_directory
+    ports:
+      - "5434:5432"
+    volumes:
+      - employee_data:/var/lib/postgresql/data
+
+volumes:
+  employee_data:
